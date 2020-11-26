@@ -1,8 +1,8 @@
 # PHP SDK for the Webflow CMS API
 
-[![Build Status](https://travis-ci.com/expertlead/webflow-php-sdk.svg?branch=master)](https://travis-ci.com/expertlead/webflow-php-sdk)
+- Based based on discontinued [@expertlead repository](https://github.com/expertlead/webflow-php-sdk)
 
-Implementation based on [Webflow CMS API Reference](https://developers.webflow.com/#cms-api-reference)
+- Implementation based on [Webflow CMS API Reference](https://developers.webflow.com/#cms-api-reference)
 
 ## Features implemented
 - Get Current Authorization Info
@@ -44,6 +44,7 @@ $webflow->collections($siteid);
 ```
 $webflow->itemsAll($collectionId);
 ```
+
 ### Get Single Item
 ```
 $webflow->item($collectionId, $itemId);
@@ -68,11 +69,31 @@ $webflow->updateItem($collectionId, $itemId, $fields);
 $webflow->removeItem($collectionId, $itemId);
 ```
 
+### Get Webhooks
+```
+$webflow->webhooks($siteId);
+```
+
+### Get Single Webhook
+```
+$webflow->webhook($siteId, $webhookId);
+```
+
+### Create New Webhook
+```
+$webflow->createItem($siteId, $triggerType, $url, $filter);
+```
+
+### Remove Webhook
+```
+$webflow->removeWebhook($siteId, $webhookId);
+```
+
 
 ## Installation
 
 ```
 # Install Composer
-composer require expertlead/webflow-php-sdk
+composer require jr-k/webflow-php-sdk
 ```
 No extra dependencies! You are welcome ;)
