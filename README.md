@@ -1,6 +1,6 @@
 # PHP SDK for the Webflow CMS API
 
-- Based based on discontinued [@expertlead repository](https://github.com/expertlead/webflow-php-sdk)
+- Based on discontinued [@expertlead repository](https://github.com/expertlead/webflow-php-sdk)
 
 - Implementation based on [Webflow CMS API Reference](https://developers.webflow.com/#cms-api-reference)
 
