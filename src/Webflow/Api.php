@@ -58,7 +58,13 @@ class Api
         curl_setopt_array($curl, $options);
         $response = curl_exec($curl);
         curl_close($curl);
+        
         list($headers, $body) = explode("\r\n\r\n", $response, 2);
+
+        while (strpos($body, "\r\n\r\n") !== false) {
+            list($headers, $body) = explode("\r\n\r\n", $body, 2);
+        }
+        
         return $this->parse($body);
     }
     private function get($path)
