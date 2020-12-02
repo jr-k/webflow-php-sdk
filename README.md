@@ -1,7 +1,15 @@
-# PHP SDK for the Webflow CMS API
-
+# Disclaimer
 - Based on discontinued [@expertlead repository](https://github.com/expertlead/webflow-php-sdk)
 
+## New features/fixes
+- Fix bad curl body parser
+- Add Webhooks LIST/GET/POST/DELETE
+
+
+--
+
+
+# PHP SDK for the Webflow CMS API
 - Implementation based on [Webflow CMS API Reference](https://developers.webflow.com/#cms-api-reference)
 
 ## Features implemented
