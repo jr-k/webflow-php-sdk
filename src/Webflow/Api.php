@@ -17,10 +17,12 @@ class Api
     private $finish;
 
     private $cache = [];
+    private $delay = 0;
 
     public function __construct(
         $token,
-        $version = '1.0.0'
+        $version = '1.0.0',
+        $delay = 0
     ) {
         if (empty($token)) {
             throw new WebflowException('token');
@@ -28,9 +30,22 @@ class Api
 
         $this->token = $token;
         $this->version = $version;
+        $this->delay = $delay;
 
         $this->rateRemaining = 60;
 
+        return $this;
+    }
+	
+    public function getDelay(): int
+    {
+	    return $this->delay;
+    }
+	
+    public function setDelay(int $delay): self
+    {
+	$this->delay = $delay;
+	    
         return $this;
     }
 
@@ -58,7 +73,11 @@ class Api
         curl_setopt_array($curl, $options);
         $response = curl_exec($curl);
         curl_close($curl);
-        
+
+	if ($this->delay > 0) {
+	    sleep($this->delay); // Because of rate API limit
+	}
+
         list($headers, $body) = explode("\r\n\r\n", $response, 2);
 
         while (strpos($body, "\r\n\r\n") !== false) {
