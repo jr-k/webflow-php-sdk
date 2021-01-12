@@ -58,7 +58,9 @@ class Api
         curl_setopt_array($curl, $options);
         $response = curl_exec($curl);
         curl_close($curl);
-        
+
+	sleep(1); // Because of rate API limit
+
         list($headers, $body) = explode("\r\n\r\n", $response, 2);
 
         while (strpos($body, "\r\n\r\n") !== false) {
